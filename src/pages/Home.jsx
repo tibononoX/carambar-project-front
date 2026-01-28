@@ -3,7 +3,7 @@ import carambarjoke from "@assets/carambar-joke.png";
 import jokepaper from "@assets/joke0paper.png";
 import button from "@assets/button.png";
 
-export default function Home() {
+export default function Home({ currentJoke, fetchRandomJoke }) {
   return (
     <>
       <header className="App-header">
@@ -18,13 +18,12 @@ export default function Home() {
         <div className="joke-paper">
           <img src={jokepaper} alt="joke" />
           <p className="joke-text">
-            Quel est le sport le plus fruité ? <br /> <br />
-            Réponse : La boxe, parce que tu te prends des pêches dans la poire
-            et tu tombes dans les pommes.
+            {currentJoke.question} <br /> <br />
+            Réponse : {currentJoke.answer}
           </p>
         </div>
-        <button className="button">
-          <img src={button} alt="Une autre !" />
+        <button className="button" onClick={fetchRandomJoke}>
+          <img className="button-img" src={button} alt="Une autre !" />
         </button>
       </div>
     </>
