@@ -8,7 +8,7 @@ function App() {
 
   const fetchRandomJoke = async () => {
     try {
-      const response = await axios.get("/random");
+      const response = await axios.get("/random", { withCredentials: true });
       setCurrentJoke(response.data);
     } catch (error) {
       console.error("Error fetching joke:", error);
