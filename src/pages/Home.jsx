@@ -1,31 +1,26 @@
-import logo from "@assets/Logo.png";
-import carambarjoke from "@assets/carambar-joke.png";
-import jokepaper from "@assets/joke0paper.png";
 import button from "@assets/button.png";
+import Header from "@components/Header";
+import JokesPaper from "@components/JokesPaper";
+import Footer from "@components/Footer";
 
 export default function Home({ currentJoke, fetchRandomJoke }) {
   return (
     <>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <img src={carambarjoke} className="App-logo" alt="carambarLogo" />
-      </header>
+      <Header />
       <div className="page-content">
         <h2 className="display-text">
           Les blagues les plus drôles, ici et nulle par ailleurs, offertes par
           Carambar & Co !
         </h2>
-        <div className="joke-paper">
-          <img src={jokepaper} alt="joke" />
-          <p className="joke-text">
-            {currentJoke.question} <br /> <br />
-            Réponse : {currentJoke.answer}
-          </p>
-        </div>
+        <JokesPaper joke={currentJoke} />
         <button className="button" onClick={fetchRandomJoke}>
           <img className="button-img" src={button} alt="Une autre !" />
         </button>
+        <a className="all-jokes-link" href="/carambar-project-front/allJokes">
+          Je veux voir toutes les blagues !
+        </a>
       </div>
+      <Footer />
     </>
   );
 }
