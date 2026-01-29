@@ -1,4 +1,5 @@
 import button from "@assets/button.png";
+import { Link } from "react-router-dom";
 import Header from "@components/Header";
 import JokesPaper from "@components/JokesPaper";
 import Footer from "@components/Footer";
@@ -16,9 +17,9 @@ export default function Home({ currentJoke, fetchRandomJoke }) {
         <button className="button" onClick={fetchRandomJoke}>
           <img className="button-img" src={button} alt="Une autre !" />
         </button>
-        <a className="all-jokes-link" href="/carambar-project-front/allJokes">
+        <Link className="all-jokes-link" to="allJokes">
           Je veux voir toutes les blagues !
-        </a>
+        </Link>
       </div>
       <Footer />
     </>

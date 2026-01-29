@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "@services/axios";
-import button from "@assets/button.png";
 import Header from "@components/Header";
 import JokesPaper from "@components/JokesPaper";
 import Footer from "@components/Footer";
@@ -37,9 +36,9 @@ export default function SingleJoke() {
         </h2>
         <JokesPaper joke={currentJoke} />
 
-        <a className="all-jokes-link" href="/carambar-project-front/allJokes">
+        <Link className="all-jokes-link" to="/allJokes">
           Retour à la liste des blagues !
-        </a>
+        </Link>
       </div>
       <Footer />
     </>

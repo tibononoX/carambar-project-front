@@ -31,13 +31,13 @@ function App() {
     <div className="App">
       <Routes>
         <Route
-          path="/carambar-project-front/"
+          path="/"
           element={
             <Home currentJoke={currentJoke} fetchRandomJoke={fetchRandomJoke} />
           }
         />
-        <Route path="/carambar-project-front/:id" element={<SingleJoke />} />
-        <Route path="/carambar-project-front/allJokes" element={<AllJokes />} />
+        <Route path="allJokes" element={<AllJokes />} />
+        <Route path="allJokes/:id" element={<SingleJoke />} />
       </Routes>
     </div>
   );
