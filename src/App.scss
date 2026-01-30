@@ -17,7 +17,8 @@ body {
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 140%;
+  height: 100%;
+  overflow: hidden;
 }
 
 html {
@@ -35,8 +36,9 @@ code {
   align-items: center;
   flex-direction: column;
   background-image: url("@assets/background.jpg");
-  background-position-y: -60px;
-  min-height: 140vh;
+  background-position-y: -50px;
+  background-size: cover;
+  min-height: 130vh;
   text-align: center;
 
   .App-header {
@@ -62,11 +64,11 @@ code {
     height: max-content;
 
     &.all-jokes-page {
-      position: relative;
+      top: 20%;
 
       .display-text {
         position: absolute;
-        top: -10%;
+        top: -5%;
         margin-left: 80px;
         text-align: center;
       }
@@ -77,7 +79,7 @@ code {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        max-height: 70vh;
+        max-height: 50vh;
         width: 50%;
         overflow-x: auto;
 
@@ -189,6 +191,7 @@ code {
       font-size: 24px;
       color: #ffffff;
       text-decoration: none;
+      z-index: 2;
 
       &:hover {
         cursor: pointer;
@@ -203,12 +206,29 @@ code {
   }
 
   .footer {
-    position: absolute;
-    width: 95%;
-    bottom: 20px;
-    text-align: right;
-    color: #ff0000;
-    font-size: 14px;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    height: 20vh;
+    bottom: 0;
+    z-index: 1;
+
+    p {
+      margin: 0 20px 10px 0;
+      bottom: 0px;
+      text-align: right;
+      color: #ff0000;
+      font-size: 14px;
+      position: absolute;
+    }
+
+    .footer-background {
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
   }
 }
 
@@ -217,9 +237,14 @@ code {
 }
 
 @media (max-width: 768px) {
+  body {
+    height: 100%;
+  }
+
   .App {
     background-size: cover;
-    background-position: 60% -40px;
+    background-position: 60% -20px;
+    min-height: 100vh;
 
     .App-header {
       display: flex;
@@ -239,6 +264,7 @@ code {
         justify-content: center;
         flex-wrap: wrap;
         overflow-x: auto;
+        top: 15%;
 
         .display-text {
           position: absolute;
@@ -254,7 +280,7 @@ code {
           flex-direction: row;
           flex-wrap: wrap;
           justify-content: center;
-          max-height: 60vh;
+          max-height: 50vh;
           width: 100%;
           overflow-x: auto;
 
@@ -296,9 +322,15 @@ code {
       }
     }
     .footer {
-      font-size: 12px;
-      bottom: 10px;
-      text-align: center;
+      justify-content: center;
+
+      p {
+        font-size: 12px;
+        margin: 10px 0;
+      }
+      .footer-background {
+        transform: translateX(-50%);
+      }
     }
   }
 }
